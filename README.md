@@ -11,6 +11,21 @@
 
 Sebelum mengerjakan, pastikan ter-install [Composer](https://getcomposer.org/).
 
+#### Langkah Menjalankan File hasil clone di komputer lokal :
+
+```
+composer install
+```
+
+Kemudian Buat file .env dan copy isi dari file .env.example
+
+Lalu jalankan command berikut ini
+
+```
+php artisan key:generate
+php artisan migrate
+php artisan serve
+```
 
 ## Commit Pengerjaan
 
@@ -25,7 +40,7 @@ Cara untuk commit agar rapi dan terstruktur bisa dilihat [disini](https://github
 - [laravel 7.29.3](https://laravel.com/docs/7.x)
 - [Bootstrap 4](https://getbootstrap.com/)
 - [Template: SB Admin 2](https://startbootstrap.com/theme/sb-admin-2)
-- ...
+- . . .
 
 ## Lisensi
 

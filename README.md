@@ -20,13 +20,13 @@ Cara untuk commit agar rapi dan terstruktur bisa dilihat [disini](https://github
 
 ## Tools yang Digunakan
 
-- [Xampp PHP 7](https://www.apachefriends.org/download.html).
-- [Composer](https://getcomposer.org/).
-- [laravel 7.29.3](https://laravel.com/docs/7.x).
-- [Bootstrap 4](https://getbootstrap.com/).
-- [Template: SB Admin 2](https://startbootstrap.com/theme/sb-admin-2).
+- [Xampp PHP 7](https://www.apachefriends.org/download.html)
+- [Composer](https://getcomposer.org/)
+- [laravel 7.29.3](https://laravel.com/docs/7.x)
+- [Bootstrap 4](https://getbootstrap.com/)
+- [Template: SB Admin 2](https://startbootstrap.com/theme/sb-admin-2)
 - ...
 
 ## Lisensi
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Kerangka kerja Laravel adalah perangkat lunak sumber terbuka yang dilisensikan di bawah [MIT license](https://opensource.org/licenses/MIT).

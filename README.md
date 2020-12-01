@@ -7,6 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Update dari Branch Master
+
+Agar _branch_ kita bisa sama dengan _branch_ utama, langkah update nya sebagai berikut :
+
+```
+git remote add upstream https://github.com/ATW-SIM-Logbook/atw-sim-logbook.git
+git fetch upstream
+git pull upstream master
+```
+
+
+
 ## Pre-requisite Instalasi Laravel
 
 Sebelum mengerjakan, pastikan ter-install [Composer](https://getcomposer.org/).

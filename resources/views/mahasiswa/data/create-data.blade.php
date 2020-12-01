@@ -42,8 +42,8 @@
                             class="form-control @error('jenis_kelamin') is-invalid @enderror" 
                             id="InputJenisKelamin">
                         <option selected disabled>--</option>
-                        <option value="Laki-laki">{{ old('jenis_kelamin') }}</option>
-                        <option value="Perempuan">{{ old('jenis_kelamin') }}</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
                     </select>
                             @error('jenis_kelamin') <div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>

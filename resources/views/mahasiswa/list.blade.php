@@ -1,6 +1,6 @@
 @extends('layouts.footer')
-@extends('layouts.content')
+@extends('mahasiswa.data.list-data')
 @extends('layouts.sidebar')
 @extends('layouts.header')
 
-@section('title', 'Home')
+@section('title', 'Master Mahasiswa')

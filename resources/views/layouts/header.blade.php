@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@yield('title') - {{ config('app.name') }}</title>
+    <title>@yield('title') • {{ config('app.name') }}</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -26,3 +26,4 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
+        

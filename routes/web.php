@@ -20,3 +20,20 @@ Route::redirect('/', '/home');
 Route::get('/home', function () {
     return view('index');
 });
+
+// route untuk Master Mahasiswa 
+Route::get('/mahasiswa', 'MahasiswaController@index');
+Route::get('/mahasiswa/list', 'MahasiswaController@list');
+Route::get('/mahasiswa/create', 'MahasiswaController@create');
+Route::get('/mahasiswa/{mahasiswa}', 'MahasiswaController@show');
+
+//mengirim data
+Route::post('/mahasiswa', 'MahasiswaController@store');
+
+//mengangkap data
+Route::get('/mahasiswa/{mahasiswa}/edit', 'MahasiswaController@edit');
+//mengubah data
+Route::patch('/mahasiswa/{mahasiswa}', 'MahasiswaController@update');
+
+//menghapus data
+Route::delete('/mahasiswa/{mahasiswa}', 'MahasiswaController@destroy');

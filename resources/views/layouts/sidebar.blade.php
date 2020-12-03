@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon">
             <i class="fas fa-clipboard-list"></i>
         </div>
@@ -13,8 +13,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ url('home') }}">
+    <li class="{{ request()->is('dashboard*') ? 'nav-item active' : 'nav-item' }}">
+        <a class="nav-link" href="{{ url('dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -22,67 +22,26 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Menu 1
-    </div>
-
     <!-- Nav Item - Master Mahasiswa -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMahasiswa"
-            aria-expanded="true" aria-controls="collapseMahasiswa">
-            <i class="fas fa-fw fa-folder"></i>
+    <li class="{{ request()->is('mahasiswa*') ? 'nav-item active' : 'nav-item' }}">
+        <a class="nav-link" href="{{ url('/mahasiswa') }}">
+            <i class="fas fa-fw fa-table"></i>
             <span>Master Mahasiswa</span>
         </a>
-        <div id="collapseMahasiswa" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ url('/mahasiswa') }}">Data Mahasiswa</a>
-                <a class="collapse-item" href="{{ url('/mahasiswa/list') }}">List Mahasiswa</a>
-                <a class="collapse-item" href="{{ url('/mahasiswa/create') }}">Tambah Data</a>
-            </div>
-        </div>
     </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Logbook</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Menu 2
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Master User</span>
+        
+    <li class="{{ request()->is('logbook*') ? 'nav-item active' : 'nav-item' }}">
+        <a class="nav-link" href="{{ url('/logbook') }}">
+            <i class="fas fa-fw fa-clipboard"></i>
+            <span>Logbook</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
-            </div>
-        </div>
     </li>
 
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+    <li class="{{ request()->is('profil*') ? 'nav-item active' : 'nav-item' }}">
+        <a class="nav-link" href="{{ url('/profil') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Profil</span>
+        </a>
     </li>
 
     <!-- Divider -->
@@ -274,7 +233,7 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">User Profile</span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
                         <img class="img-profile rounded-circle"
                             src="{{ asset('assets/img/undraw_profile.svg') }}">
                     </a>
@@ -294,7 +253,7 @@
                             Activity Log
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <a class="dropdown-item" href="/logout" onclick="return confirm('Logout?')">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                             Logout
                         </a>

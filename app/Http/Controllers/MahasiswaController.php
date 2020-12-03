@@ -18,6 +18,7 @@ class MahasiswaController extends Controller
         return view('mahasiswa.index', ['mahasiswa' => $mahasiswa]);
     }
 
+    //sementara tidak dipakai fitur ini
     public function list()
     {
         $mahasiswa = \App\Mahasiswa::all();
@@ -90,7 +91,7 @@ class MahasiswaController extends Controller
     {
         //validasi data sebelum dikirim
         $request->validate([
-            'nrp' => 'required|numeric|unique:mahasiswa',
+            'nrp' => 'required|numeric',
             'nama' => 'required',
             'jenis_kelamin' => 'required',
             'prodi' => 'required',
@@ -118,6 +119,12 @@ class MahasiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Mahasiswa $mahasiswa)
+    {
+        \App\Mahasiswa::destroy($mahasiswa->id);
+        return redirect('/mahasiswa')->with('status', 'Data mahasiswa berhasil dihapus!');
+    }
+
+    public function delete(Mahasiswa $mahasiswa)
     {
         \App\Mahasiswa::destroy($mahasiswa->id);
         return redirect('/mahasiswa')->with('status', 'Data mahasiswa berhasil dihapus!');

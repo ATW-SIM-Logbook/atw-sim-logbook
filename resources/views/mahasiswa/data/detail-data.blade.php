@@ -69,7 +69,7 @@
 </div>
 <!-- End of Main Content -->
 
-<!-- Modal -->
+<!-- Modal untuk Hapus Data -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -84,12 +84,12 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <form action="{{ $mahasiswa->id }}" method="POST">
-            @method('delete')
-            @csrf
-            <button type="submit" class="btn btn-danger mr-2" data-toggle="modal" data-target="#deleteModal">Hapus</button>
-        </form>
+            <form action="{{ $mahasiswa->id }}" method="POST">
+                @method('delete')
+                @csrf
+                <button type="submit" class="btn btn-danger mr-2" data-toggle="modal" data-target="#deleteModal">Hapus</button>
+            </form>
         </div>
       </div>
     </div>
-  </div>
+</div>

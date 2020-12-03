@@ -14,7 +14,7 @@
 
         <!-- Pesan ketika data berhasil ditambahkan -->
         @if (session('status'))
-            <div class="col-xl-10">
+            <div class="col-xl-8">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('status') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -25,40 +25,15 @@
         @endif
 
         <!-- Menampilkan Data dari Database -->
-        <div class="col-xl-10">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">NRP</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Jenis Kelamin</th>
-                        <th scope="col">Program Studi</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">Pilihan</th>
-                    </tr>
-                </thead>
-                @foreach ($mahasiswa as $data_mhs)
-                <tbody>
-                    <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $data_mhs->nrp }}</td>
-                        <td>{{ $data_mhs->nama }}</td>
-                        <td>{{ $data_mhs->jenis_kelamin }}</td>
-                        <td>{{ $data_mhs->prodi }}</td>
-                        <td>{{ $data_mhs->email }}</td>
-                        <td>{{ $data_mhs->alamat }}</td>
-                        <td>
-                        
-                        <a href="#" class="btn btn-info btn-sm"><i class="fas fa-pen"></i></a>
-                            
-                        <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
-                        </td>
-                    </tr> 
-                </tbody>
+        <div class="col-xl-8">
+            <ul class="list-group">
+                @foreach ($mahasiswa as $data_mhs)  
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ $data_mhs->nrp . ' - ' . $data_mhs->nama }}
+                    <a href="/mahasiswa/{{ $data_mhs->id }}" class="badge badge-primary badge-pill">detail</a>
+                    </li>
                 @endforeach
-            </table>
+              </ul>
         </div>
     </div>
 

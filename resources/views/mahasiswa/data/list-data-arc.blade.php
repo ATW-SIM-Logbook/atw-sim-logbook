@@ -56,9 +56,7 @@
                         <td>                           
                             <a href="/mahasiswa/{{ $data_mhs->id }}/edit" type="button" class="btn btn-success btn-sm"><i class="fas fa-pen"></i></a>
 
-                            <a href="/mahasiswa/{{ $data_mhs->id }}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data?')"><i class="fas fa-trash-alt"></i></a>
-
-                            {{-- <button type="submit" class="btn btn-danger mx-2 btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash-alt"></i></button> --}}
+                            <a href="/mahasiswa/{{ $data_mhs->id }}/delete" data-toggle="modal" data-target="deleteModal" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data?')"><i class="fas fa-trash-alt"></i></a>
                                 
                         </td>
                     </tr> 
@@ -73,28 +71,3 @@
 
 </div>
 <!-- End of Main Content -->
-
-<!-- Modal untuk Hapus Data (sementara tidak dipakai) -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-        Ingin menghapus data mahasiswa {{ $data_mhs->nrp }} ?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <form action="{{ $data_mhs->id }}" method="POST">
-                @method('delete')
-                @csrf
-                <button type="submit" class="btn btn-danger mr-2" data-toggle="modal" data-target="#deleteModal">Hapus</button>
-            </form>
-        </div>
-      </div>
-    </div>
-</div>

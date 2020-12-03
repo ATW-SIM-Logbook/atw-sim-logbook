@@ -1,6 +1,6 @@
 @extends('layouts.footer')
-@extends('mahasiswa.data.index-data')
+@extends('dashboard.data.index-data')
 @extends('layouts.sidebar')
 @extends('layouts.header')
 
-@section('title', 'Master Mahasiswa')
+@section('title', 'Dashboard')

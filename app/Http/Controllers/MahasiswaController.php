@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Mahasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MahasiswaController extends Controller
 {
@@ -54,7 +56,19 @@ class MahasiswaController extends Controller
             'alamat' => 'required'
         ]);
 
+        //input ke tabel:Users
+        $user = new \App\User;
+        $user->role = 'mahasiswa';
+        $user->name = $request->nama;
+        $user->email = $request->email;
+        $user->password = bcrypt('mahasiswa');
+        $user->remember_token = Str::random(40);
+        $user->save();
+
+        //input ke tabel: Mahasiswa
+        $request->request->add(['user_id' => $user->id]);
         \App\Mahasiswa::create($request->all());
+
         return redirect('/mahasiswa')->with('status', 'Data mahasiswa berhasil ditambahkan!');
     }
 

@@ -13,22 +13,26 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="{{ request()->is('dashboard*') ? 'nav-item active' : 'nav-item' }}">
-        <a class="nav-link" href="{{ url('dashboard') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
+    @if (auth()->user()->role == 'admin')
+        <li class="{{ request()->is('dashboard*') ? 'nav-item active' : 'nav-item' }}">
+            <a class="nav-link" href="{{ url('dashboard') }}">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
+    @endif
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Nav Item - Master Mahasiswa -->
-    <li class="{{ request()->is('mahasiswa*') ? 'nav-item active' : 'nav-item' }}">
-        <a class="nav-link" href="{{ url('/mahasiswa') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Master Mahasiswa</span>
-        </a>
-    </li>
+    @if (auth()->user()->role == 'admin')
+        <li class="{{ request()->is('mahasiswa*') ? 'nav-item active' : 'nav-item' }}">
+            <a class="nav-link" href="{{ url('/mahasiswa') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Master Mahasiswa</span>
+            </a>
+        </li>
+    @endif
         
     <li class="{{ request()->is('logbook*') ? 'nav-item active' : 'nav-item' }}">
         <a class="nav-link" href="{{ url('/logbook') }}">

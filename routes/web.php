@@ -21,14 +21,14 @@ Route::get('/logout', 'AuthController@logout');
 
 
 // agar route awal selalu mengarah ke /home
-Route::redirect('/', '/dashboard');
+// Route::redirect('/', '/dashboard');
 
 // route untuk Home
 Route::get('/home', function () {
     return view('index');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'CheckRole:admin'])->group(function () {
 
     //route untuk dashboard
     Route::get('/dashboard', 'DashboardController@index');
@@ -44,10 +44,12 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/mahasiswa/{mahasiswa}', 'MahasiswaController@update');       //mengubah data
     Route::delete('/mahasiswa/{mahasiswa}', 'MahasiswaController@destroy');     //menghapus data (dari detail)
     Route::get('/mahasiswa/{mahasiswa}/delete', 'MahasiswaController@delete');  //menghapus data (dari menu)
+});
+
+Route::middleware(['auth', 'CheckRole:admin,mahasiswa'])->group(function () {
 
     // route untuk logbook
     Route::get('/logbook', 'LogbookController@index');
-
 
     // route untuk Profil
     Route::get('/profil', 'ProfilController@index');

@@ -19,14 +19,8 @@ Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
 
-
 // agar route awal selalu mengarah ke /home
 // Route::redirect('/', '/dashboard');
-
-// route untuk Home
-Route::get('/home', function () {
-    return view('index');
-});
 
 Route::middleware(['auth', 'CheckRole:admin'])->group(function () {
 
@@ -53,4 +47,12 @@ Route::middleware(['auth', 'CheckRole:admin,mahasiswa'])->group(function () {
 
     // route untuk Profil
     Route::get('/profil', 'ProfilController@index');
+});
+
+Route::middleware(['auth', 'CheckRole:mahasiswa'])->group(function () {
+
+    // route untuk Home
+    Route::get('/home', function () {
+        return view('index');
+    });
 });

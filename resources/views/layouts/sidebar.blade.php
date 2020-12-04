@@ -33,7 +33,16 @@
             </a>
         </li>
     @endif
-        
+    
+    @if (auth()->user()->role == 'mahasiswa')
+    <li class="{{ request()->is('mahasiswa*') ? 'nav-item active' : 'nav-item' }}">
+        <a class="nav-link" href="{{ url('/mahasiswa') }}">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Home</span>
+        </a>
+    </li>
+    @endif
+
     <li class="{{ request()->is('logbook*') ? 'nav-item active' : 'nav-item' }}">
         <a class="nav-link" href="{{ url('/logbook') }}">
             <i class="fas fa-fw fa-clipboard"></i>

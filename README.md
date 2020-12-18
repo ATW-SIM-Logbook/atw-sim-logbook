@@ -21,17 +21,17 @@ git pull upstream master
 
 Sebelum mengerjakan, pastikan ter-install [Composer](https://getcomposer.org/).
 
-#### Langkah Menjalankan File hasil clone di komputer lokal :
+### Langkah Menjalankan File hasil clone di komputer lokal :
 
-1. Menginstall composer (jika belum)
+#### 1. Menginstall composer (jika belum)
 
 ```
 composer install
 ```
 
-2. Kemudian Buat file .env dan copy isi dari file .env.example
+#### 2. Kemudian Buat file .env dan copy isi dari file .env.example
 
-3. Lalu jalankan command berikut ini
+#### 3. Lalu jalankan command berikut ini
 
 ```
 php artisan key:generate
@@ -39,7 +39,7 @@ php artisan migrate
 php artisan serve
 ```
 
-4. Jalankan _Tinker_ untuk insert data user dari console:
+#### 4. Jalankan _Tinker_ untuk insert data user dari console:
 
 ```
 php artisan tinker
@@ -56,12 +56,14 @@ $user->save();
 
 Catatan: untuk name, email, dan password bisa diisikan sesuai keinginan.
 
-5. Akan muncul error ketika pertama kali mengakses menu: Master Mahasiswa,
+#### 5. Akan muncul error ketika pertama kali mengakses menu: Master Mahasiswa,
 karena memang tidak ada data di database.
 
 Untuk mengatasinya, lakukan insert data dari localhost/phpmyadmin.
 
-![alt text](https://live.staticflickr.com/65535/50732247163_e2f1781b0b_b.jpg)
+![insert data pertama kali](https://live.staticflickr.com/65535/50732247163_e2f1781b0b_b.jpg)
+
+Catatan: yang bertanda centang bisa dikosongi
 
 ## Commit Pengerjaan
 

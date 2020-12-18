@@ -26,7 +26,7 @@
 
         <!-- Menampilkan Data dari Database -->
         <div class="col-xl-auto">
-            <table class="table table-bordered table-hover table-responsive">
+            <table id="TabelMahasiswa" class="table table-bordered table-hover table-responsive">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">ID</th>
@@ -35,7 +35,6 @@
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Program Studi</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Alamat</th>
                         <th scope="col">Detail</th>
                         <th scope="col">Pilihan</th>
                     </tr>
@@ -49,7 +48,6 @@
                         <td>{{ $data_mhs->jenis_kelamin }}</td>
                         <td>{{ $data_mhs->prodi }}</td>
                         <td>{{ $data_mhs->email }}</td>
-                        <td>{{ $data_mhs->alamat }}</td>
                         <td>
                             <a href="/mahasiswa/{{ $data_mhs->id }}" class="btn btn-info btn-sm">Detail</i></a>                           
                         </td>

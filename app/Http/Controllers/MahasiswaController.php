@@ -61,6 +61,10 @@ class MahasiswaController extends Controller
         $user->role = 'mahasiswa';
         $user->name = $request->nama;
         $user->email = $request->email;
+        // $user->nrp = $request->nrp;
+        // $user->jenis_kelamin = $request->jenis_kelamin;
+        // $user->prodi = $request->prodi;
+        // $user->alamat = $request->alamat;
         $user->password = bcrypt('mahasiswa');
         $user->remember_token = Str::random(40);
         $user->save();
@@ -120,7 +124,11 @@ class MahasiswaController extends Controller
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'prodi' => $request->prodi,
                 'email' => $request->email,
-                'alamat' => $request->alamat
+                'alamat' => $request->alamat,
+                'hari' => $request->hari,
+                'tanggal' => $request->tanggal,
+                'kegiatan' => $request->kegiatan,
+                'keterangan' => $request->keterangan
             ]);
 
         return redirect('/mahasiswa')->with('status', 'Data mahasiswa berhasil diubah!');

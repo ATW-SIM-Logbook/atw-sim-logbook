@@ -12,50 +12,56 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Dashboard -->
+    <!-- Nav Item - Admin -->
     @if (auth()->user()->role == 'admin')
         <li class="{{ request()->is('dashboard*') ? 'nav-item active' : 'nav-item' }}">
             <a class="nav-link" href="{{ url('dashboard') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
-    @endif
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-    <!-- Nav Item - Master Mahasiswa -->
-    @if (auth()->user()->role == 'admin')
         <li class="{{ request()->is('mahasiswa*') ? 'nav-item active' : 'nav-item' }}">
             <a class="nav-link" href="{{ url('/mahasiswa') }}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Master Mahasiswa</span>
             </a>
         </li>
+
+        <li class="{{ request()->is('logbook*') ? 'nav-item active' : 'nav-item' }}">
+            <a class="nav-link" href="{{ url('/logbook') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Master Logbook</span>
+            </a>
+        </li>
     @endif
-    
+
+    <!-- Nav Item - Mahasiswa --> 
     @if (auth()->user()->role == 'mahasiswa')
-    <li class="{{ request()->is('mahasiswa*') ? 'nav-item active' : 'nav-item' }}">
-        <a class="nav-link" href="{{ url('/mahasiswa') }}">
-            <i class="fas fa-fw fa-home"></i>
-            <span>Home</span>
-        </a>
-    </li>
+        <li class="{{ request()->is('home*') ? 'nav-item active' : 'nav-item' }}">
+            <a class="nav-link" href="{{ url('/mahasiswa') }}">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Home</span>
+            </a>
+        </li>
+
+        <li class="{{ request()->is('logbook*') ? 'nav-item active' : 'nav-item' }}">
+            <a class="nav-link" href="{{ url('/logbook') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Logbook</span>
+            </a>
+        </li>
+        
+        <li class="{{ request()->is('profil*') ? 'nav-item active' : 'nav-item' }}">
+            <a class="nav-link" href="{{ url('/profil') }}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Profil</span>
+            </a>
+        </li>
     @endif
 
-    <li class="{{ request()->is('logbook*') ? 'nav-item active' : 'nav-item' }}">
-        <a class="nav-link" href="{{ url('/logbook') }}">
-            <i class="fas fa-fw fa-clipboard"></i>
-            <span>Logbook</span>
-        </a>
-    </li>
-
-    <li class="{{ request()->is('profil*') ? 'nav-item active' : 'nav-item' }}">
-        <a class="nav-link" href="{{ url('/profil') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>Profil</span>
-        </a>
-    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

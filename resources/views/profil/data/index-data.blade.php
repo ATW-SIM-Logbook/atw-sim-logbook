@@ -17,14 +17,13 @@
             </div>
             <div class="card-body">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item pl-0">NRP</li>
-                    <li class="list-group-item pl-0">jenis kelamin</li>
-                    <li class="list-group-item pl-0">prodi</li>
-                    <li class="list-group-item pl-0">alamat</li>
+                    <li class="list-group-item pl-0">{{ auth()->user()->nrp }}</li>
+                    <li class="list-group-item pl-0">{{ auth()->user()->prodi }}</li>
+                    <li class="list-group-item pl-0">{{ auth()->user()->jenis_kelamin }}</li>
+                    <li class="list-group-item pl-0">{{ auth()->user()->alamat }}</li>
                 </ul>
             </div>
         </div>
-
         
     </div>
 

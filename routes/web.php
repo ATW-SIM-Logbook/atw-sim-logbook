@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// agar route awal selalu mengarah ke /login
+Route::redirect('/', '/login');
+
 //route untuk auth (login dan 404)
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
-
-// agar route awal selalu mengarah ke /home
-// Route::redirect('/', '/dashboard');
 
 Route::middleware(['auth', 'CheckRole:admin'])->group(function () {
 
@@ -31,6 +32,8 @@ Route::middleware(['auth', 'CheckRole:admin'])->group(function () {
     Route::get('/mahasiswa', 'MahasiswaController@index');
     Route::get('/mahasiswa/list', 'MahasiswaController@list');
     Route::get('/mahasiswa/create', 'MahasiswaController@create');
+    Route::get('/logbook', 'LogbookController@index');
+    Route::get('/logbook/create', 'LogbookController@create');
     Route::get('/mahasiswa/{mahasiswa}', 'MahasiswaController@show');
 
     Route::post('/mahasiswa', 'MahasiswaController@store');                     //mengirim data
@@ -38,15 +41,10 @@ Route::middleware(['auth', 'CheckRole:admin'])->group(function () {
     Route::patch('/mahasiswa/{mahasiswa}', 'MahasiswaController@update');       //mengubah data
     Route::delete('/mahasiswa/{mahasiswa}', 'MahasiswaController@destroy');     //menghapus data (dari detail)
     Route::get('/mahasiswa/{mahasiswa}/delete', 'MahasiswaController@delete');  //menghapus data (dari menu)
+
 });
 
 Route::middleware(['auth', 'CheckRole:admin,mahasiswa'])->group(function () {
-
-    // route untuk logbook
-    Route::get('/logbook', 'LogbookController@index');
-
-    // route untuk Profil
-    Route::get('/profil', 'ProfilController@index');
 });
 
 Route::middleware(['auth', 'CheckRole:mahasiswa'])->group(function () {
@@ -55,4 +53,7 @@ Route::middleware(['auth', 'CheckRole:mahasiswa'])->group(function () {
     Route::get('/home', function () {
         return view('index');
     });
+
+    // route untuk Profil
+    Route::get('/profil', 'ProfilController@index');
 });

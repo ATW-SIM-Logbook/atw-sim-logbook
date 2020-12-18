@@ -13,7 +13,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $users = \App\User::all();
+        $mahasiswa = \App\Mahasiswa::all();
+        $logbook = \App\Logbook::all();
+        return view('dashboard.index', ['users' => $users, 'mahasiswa' => $mahasiswa, 'logbook' => $logbook]);
     }
 
     /**

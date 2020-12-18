@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mahasiswa;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller

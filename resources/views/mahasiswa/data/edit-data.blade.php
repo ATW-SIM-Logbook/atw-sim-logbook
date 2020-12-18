@@ -81,6 +81,52 @@
                               @error('alamat') <div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
 
+                <h5 class="my-3 text-gray-800">Edit Logbook Mahasiswa</h5>
+
+                <div class="form-group">
+                    <label for="InputEmail">Hari</label>
+                    <input  name="hari" 
+                            type="text" 
+                            class="form-control @error('hari') is-invalid @enderror" 
+                            id="Inputhari" 
+                            placeholder="hari"
+                            value="{{ $mahasiswa->hari }}">
+                            @error('hari') <div class="invalid-feedback">{{ $message }}</div>@enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="InputTanggal">Tanggal</label>
+                    <input  name="tanggal" 
+                            type="date" 
+                            class="form-control @error('tanggal') is-invalid @enderror" 
+                            id="Inputtanggal" 
+                            placeholder="Tanggal"
+                            value="{{ $mahasiswa->tanggal }}">
+                            @error('tanggal') <div class="invalid-feedback">{{ $message }}</div>@enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="InputKegiatan">Kegiatan</label>
+                    <input  name="kegiatan" 
+                            type="text" 
+                            class="form-control @error('kegiatan') is-invalid @enderror" 
+                            id="Inputkegiatan" 
+                            placeholder="kegiatan"
+                            value="{{ $mahasiswa->kegiatan }}">
+                            @error('kegiatan') <div class="invalid-feedback">{{ $message }}</div>@enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="InputKeterangan">Keterangan</label>
+                    <input  name="keterangan" 
+                            type="text" 
+                            class="form-control @error('keterangan') is-invalid @enderror" 
+                            id="Inputketerangan" 
+                            placeholder="keterangan"
+                            value="{{ $mahasiswa->keterangan }}">
+                            @error('keterangan') <div class="invalid-feedback">{{ $message }}</div>@enderror
+                </div>
+
                 <div class="d-flex flex-row-reverse">
                     <button type="submit" class="btn btn-primary">Kirim</button>
                 <a href="/mahasiswa/{{ $mahasiswa->id }}" type="button" class="btn btn-secondary mx-2">Kembali</a>

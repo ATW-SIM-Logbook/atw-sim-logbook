@@ -1,6 +1,6 @@
 @extends('layouts.footer')
-@extends('logbook.data.index-data')
+@extends('logbook.data.user-data')
 @extends('layouts.sidebar')
 @extends('layouts.header')
 
-@section('title', 'Master Logbook')
+@section('title', 'Logbook')

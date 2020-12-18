@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Logbook;
+use App\Mahasiswa;
 use Illuminate\Http\Request;
 
 class LogbookController extends Controller
@@ -13,7 +15,8 @@ class LogbookController extends Controller
      */
     public function index()
     {
-        return view('logbook.index');
+        $mahasiswa = \App\Mahasiswa::all();
+        return view('logbook.index', ['mahasiswa' => $mahasiswa]);
     }
 
     /**
@@ -23,7 +26,8 @@ class LogbookController extends Controller
      */
     public function create()
     {
-        //
+        $logbook = \App\Logbook::all();
+        return view('logbook.create', ['logbook' => $logbook]);
     }
 
     /**
@@ -34,7 +38,15 @@ class LogbookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $mahasiswa = new \App\Mahasiswa;
+        // $mahasiswa->hari = $request->hari;
+        // $mahasiswa->tanggal = $request->tanggal;
+        // $mahasiswa->kegiatan = $request->kegiatan;
+        // $mahasiswa->keterangan = $request->keterangan;
+        // $mahasiswa->save();
+
+        // \App\Logbook::create($request->all());
+        // return redirect('/logbook')->with('status', 'Data logbook berhasil ditambahkan!');
     }
 
     /**
@@ -43,9 +55,9 @@ class LogbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Mahasiswa $mahasiswa)
     {
-        //
+        return view('logbook.detail', ['mahasiswa' => $mahasiswa]);
     }
 
     /**
@@ -54,9 +66,9 @@ class LogbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Mahasiswa $mahasiswa)
     {
-        //
+        return view('logbook.create', ['mahasiswa' => $mahasiswa]);
     }
 
     /**
@@ -66,9 +78,17 @@ class LogbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Mahasiswa $mahasiswa)
     {
-        //
+        \App\Mahasiswa::where('id', $mahasiswa->id)
+            ->update([
+                'hari' => $request->hari,
+                'tanggal' => $request->tanggal,
+                'kegiatan' => $request->kegiatan,
+                'keterangan' => $request->keterangan
+            ]);
+
+        return redirect('/logbook')->with('status', 'Data logbook berhasil ditambahkan!');
     }
 
     /**

@@ -17,27 +17,51 @@ git fetch upstream
 git pull upstream master
 ```
 
-
-
 ## Pre-requisite Instalasi Laravel
 
 Sebelum mengerjakan, pastikan ter-install [Composer](https://getcomposer.org/).
 
 #### Langkah Menjalankan File hasil clone di komputer lokal :
 
+1. Menginstall composer (jika belum)
+
 ```
 composer install
 ```
 
-Kemudian Buat file .env dan copy isi dari file .env.example
+2. Kemudian Buat file .env dan copy isi dari file .env.example
 
-Lalu jalankan command berikut ini
+3. Lalu jalankan command berikut ini
 
 ```
 php artisan key:generate
 php artisan migrate
 php artisan serve
 ```
+
+4. Jalankan _Tinker_ untuk insert data user dari console:
+
+```
+php artisan tinker
+
+$user = new \App\User;
+
+$user->role = 'admin';
+$user->name = 'name--admin--bebas';
+$user->email = 'email--admin--bebas';
+$user->password = bcrypt('password--admin--bebas');
+$user->remember_token = Str::random(40);
+$user->save();
+```
+
+Catatan: untuk name, email, dan password bisa diisikan sesuai keinginan.
+
+5. Akan muncul error ketika pertama kali mengakses menu: Master Mahasiswa,
+karena memang tidak ada data di database.
+
+Untuk mengatasinya, lakukan insert data dari localhost/phpmyadmin.
+
+![alt text](https://live.staticflickr.com/65535/50732247163_e2f1781b0b_b.jpg)
 
 ## Commit Pengerjaan
 

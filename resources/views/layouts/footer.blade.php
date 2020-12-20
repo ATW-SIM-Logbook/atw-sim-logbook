@@ -40,31 +40,46 @@
 <!-- End of Page Wrapper -->
 
     <!-- Custom scripts DataTables-->
-    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script> 
 
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script> 
+    {{-- <script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>  --}}
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
     
     <!-- Custom scripts DataTables: Logbook-->
-    <script>
-        $(document).ready( function () {
-            $('#TabelLogbook').DataTable();
-        } );
-    </script>
-
-    <!-- Custom scripts DataTables: Mahasiswa-->
-    <script>
-        $(document).ready( function () {
-            $('#TabelMahasiswa').DataTable();
-        } );
+    <script type="text/javascript">
+        $(document).ready(function() {
+          
+          var table = $('.table-logbook').DataTable({
+              processing: true,
+              serverSide: true,
+              ajax: "{{ route('logbook.list') }}",
+              columns: [
+                  {data: 'id'},
+                  {data: 'nrp'},
+                  {data: 'nama'},
+                  {data: 'hari'},
+                  {data: 'tanggal'},
+                  {data: 'kegiatan'},
+                  {data: 'keterangan'},
+                //   {
+                //       data: 'action', 
+                //       name: 'action', 
+                //       orderable: true, 
+                //       searchable: true
+                //   },
+              ]
+          });
+          
+        });
     </script>
 
 </body>

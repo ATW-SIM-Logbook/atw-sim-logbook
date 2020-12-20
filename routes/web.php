@@ -34,6 +34,7 @@ Route::middleware(['auth', 'CheckRole:admin'])->group(function () {
     Route::get('/mahasiswa/create', 'MahasiswaController@create');
     Route::get('/logbook', 'LogbookController@index');
     Route::get('/logbook/create', 'LogbookController@create');
+    Route::get('/logbook/list', 'LogbookController@getLogbook')->name('logbook.list');
     Route::get('/mahasiswa/{mahasiswa}', 'MahasiswaController@show');
 
     Route::post('/mahasiswa', 'MahasiswaController@store');                     //mengirim data
